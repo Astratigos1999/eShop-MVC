@@ -1,0 +1,30 @@
+﻿@model eShop.Models.Database.Order
+@{
+    ViewData["Title"] = "Επεξεργασία Παραγγελίας";
+}
+
+<form method="post">
+    <div class="row">
+        <input type="hidden" asp-for="OrderDate" />
+        <input type="hidden" asp-for="OrderId" />
+        <input type="hidden" asp-for="FirstName" />
+        <input type="hidden" asp-for="LastName" />
+        <input type="hidden" asp-for="Email" />
+        <input type="hidden" asp-for="Phone" />
+        <input type="hidden" asp-for="OrderDate" />
+        <input type="hidden" asp-for="PostalCode" />
+        <input type="hidden" asp-for="Total" />
+        <input type="hidden" asp-for="Customer" />
+        <input type="hidden" asp-for="City" />
+        <input type="hidden" asp-for="Address" />
+        <select asp-for="HasBeenShipped" class="form-control">
+            <option value="false">Δεν έχει σταλθεί</option>
+            <option value="true">Έχει σταλθεί</option>
+        </select>
+    </div>
+    <hr />
+    <div class="row">
+        <button type="submit" class="btn btn-primary">Υποβολή</button>
+        <a asp-action="Index" class="btn btn-info">Πίσω</a>
+    </div>
+</form>

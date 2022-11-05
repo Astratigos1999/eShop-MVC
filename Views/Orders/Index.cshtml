@@ -1,0 +1,96 @@
+﻿@model IEnumerable<eShop.Models.Database.Order>
+@{
+    ViewData["Title"] = "Οι Παραγγελίες σας";
+}
+<form method="post">
+    <div class="row">
+        @if (!signinmanager.IsSignedIn(User))
+        {
+            <div class="form-group row">
+                <input type="text" name="id" style="width:500px" class="mr-1 form-control" placeholder="Προσθέστε τον κωδικό σας για να δείτε την παραγγελία σας" />
+                <input type="submit" style="width:150px" class="btn btn-primary" value="Αναζήτηση" />
+            </div>
+        }
+        else
+        {
+            if (User.IsInRole(Constants.AdminRole))
+            {
+                <input class="btn btn-primary" type="submit" value="Διαγραφή" onclick="return confirm('Είστε σίγουροι ότι θέλετε να κάνετε αυτή τη διαγραφή;')" />
+            }
+        }
+    </div>
+    <br />
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-9">
+                    <div class="container-fluid">
+                        <table class="table table-hover">
+                            <tr>
+                                <th>Όνομα</th>
+                                <th>Επώνυμο</th>
+                                <th>Ηλ. Ταχυδρομείο</th>
+                                <th>Τηλέφωνο</th>
+                                <th>Πόλη</th>
+                                <th>Διεύθυνση</th>
+                                <th>Τ.Κ.</th>
+                                <th>Έχει σταλθεί</th>
+                                <th>Σύνολο</th>
+                            </tr>
+                            @foreach (var order in Model)
+                            {
+                                <tr class="align-items-center">
+                                    @if (User.IsInRole(Constants.AdminRole))
+                                    {
+                                        <td>
+                                            <input type="checkbox" class="custom-checkbox" value="@order.OrderId" name="IDcheckbox" />
+                                        </td>
+                                    }
+                                    <td>
+                                        @order.FirstName
+                                    </td>
+                                    <td>
+                                        @order.LastName
+                                    </td>
+                                    <td>
+                                        @order.Email
+                                    </td>
+                                    <td>
+                                        @order.Phone
+                                    </td>
+                                    <td>
+                                        @order.City
+                                    </td>
+                                    <td>
+                                        @order.Address
+                                    </td>
+                                    <td>
+                                        @order.PostalCode
+                                    </td>
+                                    <td>
+                                        @if (@order.HasBeenShipped == true)
+                                        {
+                                            <p>Έχει σταλθεί.</p>
+                                        }
+                                        else
+                                        {
+                                            <p>Δεν έχει σταλθεί</p>
+                                        }
+                                    </td>
+                                    <td>
+                                        @order.Total.ToString("C2")
+                                    </td>
+                                    <td><a asp-action="Details" asp-route-id="@order.OrderId">Λεπτόμερειες</a></td>
+                                    @if (User.IsInRole(Constants.AdminRole))
+                                    {
+                                        <td><a asp-action="Edit" asp-route-id="@order.OrderId">Επεξεργασία</a></td>
+                                    }
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

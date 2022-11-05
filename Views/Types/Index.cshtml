@@ -1,0 +1,32 @@
+﻿@model IEnumerable<eShop.Models.Database.Type>
+@{
+    ViewData["Title"] = "Λίστα Τύπων Ανταλλακτικών";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>@ViewData["Title"]</h1>
+@using (Html.BeginForm())
+{
+    <div class="form-group row">
+        <input class="mr-1 btn btn-primary" type="submit" value="Διαγραφή" onclick="return confirm('Είστε σίγουροι ότι θέλετε να κάνετε αυτή τη διαγραφή;')" />
+        <a class="btn btn-primary" asp-action="Create">Δημιουργία</a>
+    </div>
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>
+                Όνομα
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <input type="checkbox" class="custom-checkbox" value="@item.ID" name="IDcheckbox" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+            </tr>
+        }
+    </table>
+}

@@ -1,0 +1,81 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>d019608e-5457-4ee5-b828-10e8961519f4</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200921173745_eShop.cs" />
+    <Compile Remove="Migrations\20200921173745_eShop.Designer.cs" />
+    <Compile Remove="Migrations\20200922095505_add-migration eshop.cs" />
+    <Compile Remove="Migrations\20200922095505_add-migration eshop.Designer.cs" />
+    <Compile Remove="Migrations\20200922103308_eshop.cs" />
+    <Compile Remove="Migrations\20200922103308_eshop.Designer.cs" />
+    <Compile Remove="Migrations\20200922103947_eshop.cs" />
+    <Compile Remove="Migrations\20200922103947_eshop.Designer.cs" />
+    <Compile Remove="Migrations\20200922104747_eshop.cs" />
+    <Compile Remove="Migrations\20200922104747_eshop.Designer.cs" />
+    <Compile Remove="Migrations\20200922104920_add-migration eshop.cs" />
+    <Compile Remove="Migrations\20200922104920_add-migration eshop.Designer.cs" />
+    <Compile Remove="Migrations\20200922105552_eshop.cs" />
+    <Compile Remove="Migrations\20200922105552_eshop.Designer.cs" />
+    <Compile Remove="Migrations\20200922105824_eshop.cs" />
+    <Compile Remove="Migrations\20200922105824_eshop.Designer.cs" />
+    <Compile Remove="Migrations\20200922145924_eshop.cs" />
+    <Compile Remove="Migrations\20200922145924_eshop.Designer.cs" />
+    <Compile Remove="Migrations\20200922145958_eshop.cs" />
+    <Compile Remove="Migrations\20200922145958_eshop.Designer.cs" />
+    <Compile Remove="Migrations\20200922150429_eshop.cs" />
+    <Compile Remove="Migrations\20200922150429_eshop.Designer.cs" />
+    <Compile Remove="Migrations\20201002173136_eshop.cs" />
+    <Compile Remove="Migrations\20201002173136_eshop.Designer.cs" />
+    <Compile Remove="Migrations\20201002181051_eshop.cs" />
+    <Compile Remove="Migrations\20201002181051_eshop.Designer.cs" />
+    <Compile Remove="Migrations\20201006111653_add-migration eshop.cs" />
+    <Compile Remove="Migrations\20201006111653_add-migration eshop.Designer.cs" />
+    <Compile Remove="Migrations\20201009181920_eshop.cs" />
+    <Compile Remove="Migrations\20201009181920_eshop.Designer.cs" />
+    <Compile Remove="Migrations\20201009184327_eshop.cs" />
+    <Compile Remove="Migrations\20201009184327_eshop.Designer.cs" />
+    <Compile Remove="Migrations\20201009184545_eshop.cs" />
+    <Compile Remove="Migrations\20201009184545_eshop.Designer.cs" />
+    <Compile Remove="Migrations\20201013112255_eshop.cs" />
+    <Compile Remove="Migrations\20201013112255_eshop.Designer.cs" />
+    <Compile Remove="Migrations\20201014105855_eshop.cs" />
+    <Compile Remove="Migrations\20201014105855_eshop.Designer.cs" />
+    <Compile Remove="Migrations\20201015151713_eshop.cs" />
+    <Compile Remove="Migrations\20201015151713_eshop.Designer.cs" />
+    <Compile Remove="Migrations\20201017133914_eshop.cs" />
+    <Compile Remove="Migrations\20201017133914_eshop.Designer.cs" />
+    <Compile Remove="Migrations\20201017135137_eshop.cs" />
+    <Compile Remove="Migrations\20201017135137_eshop.Designer.cs" />
+    <Compile Remove="Migrations\20201027101836_eshop.cs" />
+    <Compile Remove="Migrations\20201027101836_eshop.Designer.cs" />
+    <Compile Remove="Migrations\20201103101448_eshop.cs" />
+    <Compile Remove="Migrations\20201103101448_eshop.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="5.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="8.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Cart\Index.cshtml" />
+  </ItemGroup>
+
+</Project>

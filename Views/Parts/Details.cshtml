@@ -1,0 +1,51 @@
+﻿@model eShop.Models.ViewModels.Details
+
+@{
+    ViewData["Title"] = "Λεπτομέρειες";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <h4>@Model.Part.Name</h4>
+</div>
+<hr />
+<div class="row">
+    <div class="col-6">
+        <img src="@Constants.ImagePath@Model.Part.Image" class="img-fluid" />
+    </div>
+
+    <div class="col-6">
+        <div class="row">
+            <h5>Περιγραφή</h5>
+        </div>
+        <div class="row">
+            <textarea readonly class="form-control">@Model.Part.Description</textarea>
+        </div>
+        <br />
+        <div class="row">
+            <table class="table table-bordered table-striped" style="width:10%">
+                <tr>
+                    <td>
+                        Τύπος Ανταλλακτικού
+                    </td>
+                    <td>
+                        @Model.Part.Type.Name
+                    </td>
+                <tr>
+                    <td>
+                        Κατηγορία Οχήματος
+                    </td>
+                    <td>
+                        @Model.Part.VehicleCategory
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <a class="btn btn-primary" asp-action="List">Πίσω στη Λίστα</a>
+</div>
