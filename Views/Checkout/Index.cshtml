@@ -1,0 +1,32 @@
+﻿<script src="URL του SDK"></script>
+
+<div id="paypal-button-container"></div>
+<script>
+    var PAYPAL_CLIENT = 'Client-ID';
+    var PAYPAL_SECRET = 'Secret';
+    var PAYPAL_ORDER_API = 'https://api-m.paypal.com/v2/checkout/orders/';
+
+    paypal.Buttons({
+        createOrder: function (data, actions) {
+            // Λεπτομέρειες συναλλαγής, όπως σύνολο και νόμισμα
+            return actions.order.create({
+                purchase_units: [{
+                    amount:
+                    {
+                        currency: "EUR",
+                        value: @HttpContextAccessor.HttpContext.Session.GetInt32("Total")
+                    }
+                }]
+            });
+        },
+        onApprove: function (data, actions) {
+            // λήψη χρημάτων
+            return actions.order.capture().then(function (details) {
+                alert('Ολοκλήρωση συναλλαγής από ' + details.payer.name.given_name);// μήνυμα επιτυχίας
+                sessionStorage.setItem("Payment", "Paid");//για έλεγχο πληρωμής
+                window.location = "/Checkout/Success/" //δρομολόγηση στην επιτυχία
+            });
+        }
+    }).render('#paypal-button-container');
+      //Εμφάνιση Έξυπνων Κουμπιών στη σελίδα.
+</script>

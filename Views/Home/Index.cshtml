@@ -1,0 +1,110 @@
+﻿@{
+    ViewData["Title"] = "Αρχική Σελίδα";
+}
+<div class="text-center">
+    <h1 class="display-4">Καλώς Ορίσατε</h1>
+</div>
+<div class="row">
+
+    <div class="col">
+        <table>
+            <tr class="border border-primary">
+                <th>
+                    <div class="text-center">
+                        <a asp-controller="Parts" asp-action="List" asp-route-filter="Αυτοκίνητο"><i class="fas fa-3x fa-car"></i></a>
+                    </div>
+                </th>
+            </tr>
+            <tr class="border border-primary">
+                <td>
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Αμορτισέρ">Αμορτισέρ</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Ανάρτηση">Ανάρτηση</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Ελατήριο">Ελατήριο</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Συντονιστής Κινητήρα">Συντονιστής Κινητήρα</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Φίλτρο Ελευθέρας">Φίλτρο Ελευθέρας</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Φιλτροχοάνα">Φιλτροχοάνα</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Φρένο">Φρένο</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Εξάτμιση">Εξάτμιση</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Ανταλλακτικό Κινητήρα">Ανταλλακτικό Κινητήρα</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Ανταλλακτικό Πόρτας">Ανταλλακτικό Πόρτας</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Πλαστικό Κλιπ">Πλαστικό Κλιπ</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Μπουζί">Μπουζί</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Σύστημα Μετάδοσης">Σύστημα Μετάδοσης</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Φίλτρο Λαδιού">Φίλτρο Λαδιού</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Μπουλόνι">Μπουλόνι</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Μπροστινό Σύστημα">Μπροστινό Σύστημα</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Αποστάτης Τροχών">Αποστάτης Τροχών</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Κώνος Τιμονιού">Κώνος Τιμονιού</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Φίλτρο Καμπίνας">Φίλτρο Καμπίνας</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Φίλτρο Αέρα">Φίλτρο Αέρα</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Βάση Καθίσματος">Βάση Καθίσματος</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Φίλτρο Βενζίνης">Φίλτρο Βενζίνης</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Μπάρα Θόλου">Μπάρα Θόλου</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Φίλτρο Πετρελαίου">Φίλτρο Πετρελαίου</a>,
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col">
+        <table>
+            <tr class="border border-primary">
+                <th>
+                    <div class="text-center">
+                        <a asp-controller="Parts" asp-action="List" asp-route-filter="Μοτοσυκλέτα"><i class="fas fa-3x fa-motorcycle"></i></a>
+                    </div>
+                </th>
+            </tr>
+            <tr class="border border-primary">
+                <td>
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Αμορτισέρ">Αμορτισέρ</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Ηλεκτρικό">Ηλεκτρικό</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Περιφερειακό Ανταλλακτικό">Περιφερειακό Ανταλλακτικό</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Ανταλλακτικό Φρένου">Ανταλλακτικό Φρένου</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Διάφορα">Διάφορα</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Ρουλεμάν">Ρουλεμάν</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Ανταλλακτικό Κινητήρα">Ανταλλακτικό Κινητήρα</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Ανταλλακτικό Τιμονιού">Ανταλλακτικό Τιμονιού</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Ανταλλακτικό Τροχού">Ανταλλακτικό Τροχού</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Ρεζερβουάρ">Ρεζερβουάρ</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Ψαλίδι">Ψαλίδι</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Τσιμούχες">Τσιμούχες</a>,
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col">
+        <table>
+            <tr class="border border-primary">
+                <th>
+                    <div class="text-center">
+                        <a asp-controller="Parts" asp-action="List" asp-route-filter="Σκάφος"><i class="fas fa-3x fa-ship"></i></a>
+                    </div>
+                </th>
+            </tr>
+            <tr class="border border-primary">
+                <td>
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Είδος Ναυτιλίας">Είδος Ναυτιλίας</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Εξωλέμβια Μηχανή">Εξωλέμβια Μηχανή</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="GPS Plotter & Βυθόμετρο">GPS Plotter & Βυθόμετρο</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Σχοινί">Σχοινί</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Αντλία">Αντλία</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Marine Audio">Marine Audio</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Είδος για Τρέιλερ Σκάφους">Είδος για Τρέιλερ Σκάφους</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Φουσκωτό Σκάφος">Φουσκωτό Σκάφος</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Υφαλόχρωμα">Υφαλόχρωμα</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Ρεζερβουάρ">Ρεζερβουάρ</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Συρματόσχοινο">Συρματόσχοινο</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Σωσίβιο">Σωσίβιο</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Τιμόνι & Χειριστήριο">Τιμόνι & Χειριστήριο</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Φωτοβολίδα & Καπνογόνο Κινδύνου">Φωτοβολίδα & Καπνογόνο Κινδύνου</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Κάθισμα">Κάθισμα</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Κάλυμμα">Κάλυμμα</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Άγκυρα">Άγκυρα</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Τέντα">Τέντα</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Προπέλα">Προπέλα</a>,
+                    <a asp-controller="Parts" asp-action="List" asp-route-filter="Σκάλα">Σκάλα</a>,
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

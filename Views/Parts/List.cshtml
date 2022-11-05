@@ -1,0 +1,262 @@
+﻿@model IPagedList<eShop.Models.Database.Part>
+@{
+    ViewData["Title"] = "Προϊόντα";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+@using (Html.BeginForm())
+{
+    <div class="form-group row">
+        @if (User.IsInRole(Constants.AdminRole))
+        {
+            <input class="mr-1 btn btn-primary" type="submit" value="Διαγραφή" onclick="return confirm('Είστε σίγουροι ότι θέλετε να κάνετε αυτή τη διαγραφή;')" />
+            <a class="mr-5 btn btn-primary" asp-action="AddEdit">Δημιουργία</a>
+        }
+        <input class="mx-1 form-control" style="width:300px" type="text" name="search" />
+        <input type="submit" class="btn btn-primary" value="Αναζήτηση" />
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-3">
+            <div>
+                <a asp-action="List">Απαλοιφή Φίλτρων</a>
+            </div>
+            <br />
+            <table class="table table-sm">
+                <tr>
+                    <th><a asp-action="List" asp-route-filter="Αυτοκίνητο">Αυτοκίνητο</a></th>
+                </tr>
+                <tr>
+                    <td>
+                        <a asp-action="List" asp-route-filter="Αμορτισέρ">Αμορτισέρ</a>
+                        <br />
+                        <a asp-action="List" asp-route-filter="Ανάρτηση">Ανάρτηση</a>
+                        <br />
+                        <a asp-action="List" asp-route-filter="Ελατήριο">Ελατήριο</a>
+                        <br />
+                        <div id="morecarparts" style="display:none">
+                            <a asp-action="List" asp-route-filter="Συντονιστής Κινητήρα">Συντονιστής Κινητήρα</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Φίλτρο Ελευθέρας">Φίλτρο Ελευθέρας</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Φιλτροχοάνα">Φιλτροχοάνα</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Φρένο">Φρένο</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Εξάτμιση">Εξάτμιση</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Ανταλλακτικό Κινητήρα">Ανταλλακτικό Κινητήρα</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Ανταλλακτικό Πόρτας">Ανταλλακτικό Πόρτας</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Πλαστικό Κλιπ">Πλαστικό Κλιπ</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Μπουζί">Μπουζί</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Σύστημα Μετάδοσης">Σύστημα Μετάδοσης</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Φίλτρο Λαδιού">Φίλτρο Λαδιού</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Μπουλόνι">Μπουλόνι</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Μπροστινό Σύστημα">Μπροστινό Σύστημα</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Αποστάτης Τροχών">Αποστάτης Τροχών</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Κώνος Τιμονιού">Κώνος Τιμονιού</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Φίλτρο Καμπίνας">Φίλτρο Καμπίνας</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Φίλτρο Αέρα">Φίλτρο Αέρα</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Βάση Καθίσματος">Βάση Καθίσματος</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Φίλτρο Βενζίνης">Φίλτρο Βενζίνης</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Μπάρα Θόλου">Μπάρα Θόλου</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Φίλτρο Πετρελαίου">Φίλτρο Πετρελαίου</a>
+                        </div>
+                        <br />
+                        <a href="#" id="carparts" onclick="MoreCarParts()">Περισσότερα</a>
+                    </td>
+                </tr>
+            </table>
+            
+            <table class="table table-sm">
+                <tr>
+                    <th>
+                        <a asp-action="List" asp-route-filter="Μοτοσυκλέτα">Μοτοσυκλέτα</a>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <a asp-action="List" asp-route-filter="Αμορτισέρ">Αμορτισέρ</a>
+                        <br />
+                        <a asp-action="List" asp-route-filter="Ηλεκτρικό">Ηλεκτρικό</a>
+                        <br />
+                        <a asp-action="List" asp-route-filter="Περιφερειακό Ανταλλακτικό">Περιφερειακό Ανταλλακτικό</a>
+                        <br />
+                        <div id="morebikeparts" style="display:none">
+                            <a asp-action="List" asp-route-filter="Ανταλλακτικό Φρένου">Ανταλλακτικό Φρένου</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Διάφορα">Διάφορα</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Ρουλεμάν">Ρουλεμάν</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Ανταλλακτικό Κινητήρα">Ανταλλακτικό Κινητήρα</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Ανταλλακτικό Τιμονιού">Ανταλλακτικό Τιμονιού</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Ανταλλακτικό Τροχού">Ανταλλακτικό Τροχού</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Ρεζερβουάρ">Ρεζερβουάρ</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Ψαλίδι">Ψαλίδι</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Τσιμούχα">Τσιμούχα</a>
+                            <br />
+                        </div>
+                        <br />
+                        <a href="#" id="bikeparts" onclick="MoreBikeParts()">Περισσότερα</a>
+                    </td>
+                </tr>
+            </table>
+            
+            <table class="table table-sm">
+                <tr>
+                    <th>
+                        <a asp-action="List" asp-route-filter="Σκάφος">Σκάφος</a>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <a asp-action="List" asp-route-filter="Είδος Ναυτιλίας">Είδος Ναυτιλίας</a>
+                        <br />
+                        <a asp-action="List" asp-route-filter="Εξωλέμβια Μηχανή">Εξωλέμβια Μηχανή</a>
+                        <br />
+                        <a asp-action="List" asp-route-filter="GPS Plotter & Βυθόμετρο">GPS Plotter & Βυθόμετρο</a>
+                        <br />
+                        <div id="moreboatparts" style="display:none">
+                            <a asp-action="List" asp-route-filter="Σχοινί">Σχοινί</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Αντλία">Αντλία</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Marine Audio">Marine Audio</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Είδος για Τρέιλερ Σκάφους">Είδος για Τρέιλερ Σκάφους</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Φουσκωτό Σκάφος">Φουσκωτό Σκάφος</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Υφαλόχρωμα">Υφαλόχρωμα</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Ρεζερβουάρ">Ρεζερβουάρ</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Συρματόσχοινο">Συρματόσχοινο</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Τιμόνι & Χειριστήριο">Τιμόνι & Χειριστήριο</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Φωτοβολίδα & Καπνογόνο Κινδύνου">Φωτοβολίδα & Καπνογόνο Κινδύνου</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Κάθισμα">Κάθισμα</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Κάλυμμα">Κάλυμμα</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Άγκυρα">Άγκυρα</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Τέντα">Τέντα</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Προπέλα">Προπέλα</a>
+                            <br />
+                            <a asp-action="List" asp-route-filter="Σκάλα">Σκάλα</a>
+                        </div>
+                        <br />
+                        <a href="#" id="boatparts" onclick="MoreBoatParts()">Περισσότερα</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-9">
+            <div class="container-fluid">
+                <div class="table-hover">
+                    @foreach (var item in Model)
+                    {
+                        <div class="row align-items-center">
+                            @if (User.IsInRole(Constants.AdminRole))
+                            {
+                                <div class="col">
+                                    <input type="checkbox" class="custom-checkbox" value="@item.ID" name="IDcheckbox" />
+                                </div>
+                            }
+                            <div class="col">
+                                <img src="~/images/@item.Image" width="100" height="100" />
+                            </div>
+                            <div class="col">
+                                @item.Name
+                            </div>
+                            <div class="col">
+                                @item.Price.ToString("C2")
+                            </div>
+                            <div class="col">
+                                <a asp-route-Id="@item.ID" asp-action="Details">Λεπτομέρειες</a>
+                            </div>
+                            @if (User.IsInRole(Constants.AdminRole))
+                            {
+                                <div class="col">
+                                    <a asp-route-Id="@item.ID" asp-action="AddEdit">Επεξεργασία</a>
+                                </div>
+                            }
+                            <div class="col">
+                                <a class="btn btn-primary" asp-action="AddToCart" asp-route-page="@Model.PageNumber" asp-route-filter="@ViewBag.CurrentFilter" asp-route-id="@item.ID">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("List", new { page, filter = ViewBag.CurrentFilter }))
+    <script>
+        function MoreCarParts() {
+            var btnText = document.getElementById("carparts");
+            var x = document.getElementById("morecarparts");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                btnText.innerHTML = "Λιγότερα";
+            }
+            else {
+                x.style.display = "none";
+                btnText.innerHTML = "Περισσότερα";
+            }
+        }
+        function MoreBikeParts() {
+            var btnText = document.getElementById("bikeparts");
+            var x = document.getElementById("morebikeparts");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                btnText.innerHTML = "Λιγότερα";
+            }
+            else {
+                x.style.display = "none";
+                btnText.innerHTML = "Περισσότερα";
+            }
+        }
+        function MoreBoatParts() {
+            var btnText = document.getElementById("boatparts");
+            var x = document.getElementById("moreboatparts");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                btnText.innerHTML = "Λιγότερα";
+            }
+            else {
+                x.style.display = "none";
+                btnText.innerHTML = "Περισσότερα";
+            }
+        }
+    </script>

@@ -1,0 +1,20 @@
+﻿@model List<eShop.Models.Database.OrderDetail>
+@{
+    ViewData["Title"] = "Λεπτομέρειες Παραγγελίας";
+}
+
+<div class="table">
+    <div class="row border">
+        <div class="col border">Προϊόν</div>
+        <div class="col border">Ποσότητα</div>
+        <div class="col border">Τιμή/μονάδα</div>
+    </div>
+    @foreach (var detail in Model)
+    {
+        <div class="row border">
+            <div class="col border">@detail.Part.Name</div>
+            <div class="col border">@detail.Quantity</div>
+            <div class="col border">@detail.UnitPrice.ToString("C2")</div>
+        </div>
+    }
+</div>

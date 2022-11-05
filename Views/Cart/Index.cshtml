@@ -1,0 +1,90 @@
+﻿@model IEnumerable<eShop.Models.Database.CartItem>
+@if (Model.Count() > 0)
+{
+    <form method="post">
+        <div class="backgroundWhiteBorder">
+            <div class="container row">
+                <div class="col-8">
+                    <div class="card mt-4">
+                        <div class="card-header bg-dark text-light ml-0 row container">
+                            <div class="col-6">
+                                <i class="fa fa-shopping-cart"></i> &nbsp;
+                                Το Καλάθι σας
+                            </div>
+                            <div class="col-6 text-right">
+                                <a asp-controller="Parts" asp-action="List" class="btn btn-outline-info btn-sm">Συνεχίστε να ψωνίζετε</a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-none d-block">
+                                <div class="row" style="color:#821f3d">
+                                    <div class="offset-1 col-3">Λεπτομέρειες</div>
+                                    <div class="col-2">Ποσότητα</div>
+                                    <div class="col-2">Τιμή</div>
+                                    <div class="col-2">Σύνολο Καλαθιού</div>
+                                </div>
+                            </div>
+                            <hr />
+                            @foreach (var obj in Model)
+                            {
+                                <div class="row">
+                                    <div class="col-2">
+                                        <img src="@Constants.ImagePath@obj.Part.Image" width="100" height="100" />
+                                    </div>
+                                    <div class="col-2">
+                                        @obj.Part.Name
+                                        <span>@obj.Part.Description</span>
+                                    </div>
+                                    <div class="col-2">
+                                        <a asp-action="Increase" asp-route-id="@obj.Part.ID">+</a>
+                                        <input readonly class="form-control" value="@obj.Quantity" />
+                                        <a asp-action="Decrease" asp-route-id="@obj.Part.ID">-</a>
+                                    </div>
+                                    <div class="col-2">
+                                        @obj.Part.Price.ToString("C2")
+                                    </div>
+                                    <div class="col-2">
+                                        <a asp-action="Remove" asp-route-id="@obj.Part.ID" class="btn btn-outline-danger">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <hr />
+                            }
+                            @{
+                                int total = 0;
+                                @foreach (var item in Model)
+                                {
+                                    total += item.Part.Price * item.Quantity;
+                                }
+                             }
+                            <h4>Σύνολο: @total.ToString("C2")  </h4>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col-8">
+                                    @if (signinmanager.IsSignedIn(User) || HttpContextAccessor.HttpContext.Session.Get<Credentials>(Constants.Credentials) != null)
+                                    {
+                                        <a class="btn btn-success form-control" asp-controller="Checkout" asp-action="Index">
+                                            <span>Συνέχεια</span>
+                                        </a> 
+                                    }
+                                    else
+                                    {
+                                        <a class="btn btn-success form-control" asp-controller="Checkout" asp-action="Credentials">
+                                            <span>Συνέχεια</span>
+                                        </a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form> 
+}   
+else
+{
+<p>Το καλάθι είναι άδειο.</p>
+}

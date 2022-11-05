@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Επιτυχία Πληρωμής";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Ευχαριστούμε που μας προτιμήσατε!</p>
+<br />
+<p>Θα δείτε τις παραγγελίες σας στην τομή "Οι Παραγγελίες σας" στην γραμμή πλοήγησης.</p>
+@if (!signinmanager.IsSignedIn(User))
+{
+    <br />
+    <p id="customer"></p>
+}
+
+<script>
+    if (sessionStorage.getItem("Payment") != null) {
+        document.getElementById("customer").innerHTML = "Ο κωδικός σας είναι @ViewBag.Customer."
+    }
+</script>
